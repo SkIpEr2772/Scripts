@@ -1,0 +1,170 @@
+***Version of the OS,architecture of the processor and name of the OS***
+4.15.0-137-generic x86_64 GNU/Linux
+
+		***Information about interfaces in the system***
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::9d02:e12a:2c3e:f794  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:01:ff:8b  txqueuelen 1000  (Ethernet)
+        RX packets 643  bytes 619825 (619.8 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 417  bytes 54076 (54.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 434  bytes 32590 (32.5 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 434  bytes 32590 (32.5 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+		***Pieces of firewall rules***
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+ufw-before-logging-input  all  --  anywhere             anywhere            
+ufw-before-input  all  --  anywhere             anywhere            
+ufw-after-input  all  --  anywhere             anywhere            
+ufw-after-logging-input  all  --  anywhere             anywhere            
+ufw-reject-input  all  --  anywhere             anywhere            
+ufw-track-input  all  --  anywhere             anywhere            
+
+
+Chain ufw-user-logging-input (0 references)
+target     prot opt source               destination         
+
+Chain ufw-user-logging-output (0 references)
+target     prot opt source               destination         
+
+Chain ufw-user-output (1 references)
+target     prot opt source               destination         
+
+		***Names server(s) of our system***
+nameserver 127.0.0.53
+
+		***Details about the uplink DNS servers currently in use***
+Global
+          DNSSEC NTA: 10.in-addr.arpa
+                      16.172.in-addr.arpa
+                      168.192.in-addr.arpa
+                      17.172.in-addr.arpa
+                      18.172.in-addr.arpa
+                      19.172.in-addr.arpa
+                      20.172.in-addr.arpa
+                      21.172.in-addr.arpa
+                      22.172.in-addr.arpa
+                      23.172.in-addr.arpa
+                      24.172.in-addr.arpa
+                      25.172.in-addr.arpa
+                      26.172.in-addr.arpa
+                      27.172.in-addr.arpa
+                      28.172.in-addr.arpa
+                      29.172.in-addr.arpa
+                      30.172.in-addr.arpa
+                      31.172.in-addr.arpa
+                      corp
+                      d.f.ip6.arpa
+                      home
+                      internal
+                      intranet
+                      lan
+                      local
+                      private
+                      test
+
+Link 2 (enp0s3)
+      Current Scopes: DNS
+       LLMNR setting: yes
+MulticastDNS setting: no
+      DNSSEC setting: no
+    DNSSEC supported: no
+         DNS Servers: 192.168.0.1
+
+		***First 8 lines of /etc/sysctl.conf***
+#
+# /etc/sysctl.conf - Configuration file for setting system variables
+# See /etc/sysctl.d/ for additional system variables.
+# See sysctl.conf (5) for information.
+#
+
+#kernel.domainname = example.com
+
+
+		***Small piece of one from many files from /etc/modprobe.d/***
+# This file lists those modules which we don't want to be loaded by
+# alias expansion, usually so some other driver will be loaded for the
+# device instead.
+
+# evbug is a debug tool that should be loaded explicitly
+blacklist evbug
+
+# these drivers are very simple, the HID drivers are usually preferred
+blacklist usbmouse
+blacklist usbkbd
+
+		***Summary of my hardware information***
+H/W path      Device      Class       Description
+=================================================
+                          system      VirtualBox
+/0                        bus         VirtualBox
+/0/0                      memory      128KiB BIOS
+/0/1                      memory      4840MiB System memory
+/0/2                      processor   Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+/0/100                    bridge      440FX - 82441FX PMC [Natoma]
+/0/100/1                  bridge      82371SB PIIX3 ISA [Natoma/Triton II]
+/0/100/1.1                storage     82371AB/EB/MB PIIX4 IDE
+/0/100/2                  display     SVGA II Adapter
+/0/100/3      enp0s3      network     82540EM Gigabit Ethernet Controller
+/0/100/4                  generic     VirtualBox Guest Service
+/0/100/5                  multimedia  82801AA AC'97 Audio Controller
+/0/100/6                  bus         KeyLargo/Intrepid USB
+/0/100/6/1    usb1        bus         OHCI PCI host controller
+/0/100/6/1/1              input       USB Tablet
+/0/100/7                  bridge      82371AB/EB/MB PIIX4 ACPI
+/0/100/d                  storage     82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode]
+/0/3          scsi1       storage     
+/0/3/0.0.0    /dev/cdrom  disk        CD-ROM
+/0/4          scsi2       storage     
+/0/4/0.0.0    /dev/sda    disk        33GB VBOX HARDDISK
+/0/4/0.0.0/1  /dev/sda1   volume      31GiB EXT4 volume
+
+		***CPU information***
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              3
+On-line CPU(s) list: 0-2
+Thread(s) per core:  1
+Core(s) per socket:  3
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               142
+Model name:          Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+Stepping:            10
+CPU MHz:             1800.002
+BogoMIPS:            3600.00
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            6144K
+NUMA node0 CPU(s):   0-2
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase avx2 invpcid rdseed clflushopt md_clear flush_l1d
+
+		***Small piece of information about file system partions***
+Disk /dev/loop0: 55,5 MiB, 58159104 bytes, 113592 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/loop1: 12,2 MiB, 12804096 bytes, 25008 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
